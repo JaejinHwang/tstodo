@@ -1,23 +1,19 @@
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 
 const TodoList = () => {
-  const [todo, setTodo] = useState("");
-  const onChange = (event: React.FormEvent<HTMLInputElement>) => {
-    const {
-      currentTarget: { value },
-    } = event;
-    setTodo(value);
-  };
-  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    console.log(todo);
-  };
+  const { register, watch } = useForm();
+  console.log(watch());
   return (
     <>
-      <form onSubmit={onSubmit}>
+      <form>
+        <input placeholder="Email" {...register("email")} />
+        <input placeholder="First Name" {...register("firstName")} />
+        <input placeholder="Last Name" {...register("lastName")} />
+        <input placeholder="Password" {...register("password")} />
         <input
-          placeholder="Write a work to do"
-          value={todo}
-          onChange={onChange}
+          placeholder="Password Confirm"
+          {...register("passwordConfirm")}
         />
         <button>Add</button>
       </form>
