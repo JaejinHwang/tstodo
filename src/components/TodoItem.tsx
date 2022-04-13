@@ -1,4 +1,4 @@
-import { ITodo } from "./Atoms";
+import { Categories, ITodo } from "./Atoms";
 import styled from "styled-components";
 import { useRecoilState } from "recoil";
 import { todosAtom } from "./Atoms";
@@ -11,6 +11,34 @@ const ItemContainer = styled.li`
   justify-content: space-between;
   padding: 20px;
   border-radius: 16px;
+`;
+
+const CloseButton = styled.button`
+  background: ${(props) => props.theme.cardColor};
+  border: 1px solid ${(props) => props.theme.subTextColor};
+  color: ${(props) => props.theme.textColor};
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  cursor: pointer;
+`;
+
+const ActiveButton = styled.button`
+  background: ${(props) => props.theme.accentColor};
+  border: 1px solid ${(props) => props.theme.subTextColor};
+  color: ${(props) => props.theme.textColor};
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  cursor: pointer;
 `;
 
 const TodoItem = ({ text, category, date }: ITodo) => {
@@ -27,25 +55,37 @@ const TodoItem = ({ text, category, date }: ITodo) => {
       ...remainTodos.slice(targetIndex + 1),
     ]);
   };
+  const onDelete = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const {
+      currentTarget: { parentElement },
+    } = event;
+    const targetIndex = todos.findIndex(
+      (todo) => todo.text === parentElement?.children[0].innerHTML
+    );
+    setTodos([...todos.slice(0, targetIndex), ...todos.slice(targetIndex + 1)]);
+  };
   return (
     <ItemContainer>
       <span>{text}</span>
       <span>{category}</span>
-      {category === "TO DO" && (
-        <button name="DOING" onClick={onClick}>
-          start
-        </button>
+      {category === Categories.TODO && (
+        <ActiveButton name="DOING" onClick={onClick}>
+          <i className="ri-play-fill"></i>
+        </ActiveButton>
       )}
-      {category === "DOING" && (
+      {category === Categories.DOING && (
         <>
-          <button name="TO DO" onClick={onClick}>
+          <ActiveButton name="TODO" onClick={onClick}>
             back
-          </button>
-          <button name="DONE" onClick={onClick}>
+          </ActiveButton>
+          <ActiveButton name="DONE" onClick={onClick}>
             finish
-          </button>
+          </ActiveButton>
         </>
       )}
+      <CloseButton onClick={onDelete}>
+        <i className="ri-close-line"></i>
+      </CloseButton>
     </ItemContainer>
   );
 };

@@ -1,6 +1,7 @@
-import { useRecoilValue } from "recoil";
+import { useEffect } from "react";
+import { useRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components";
-import { todosAtom } from "./Atoms";
+import { todosAtom, todosSelector } from "./Atoms";
 import TodoItem from "./TodoItem";
 
 const ListContainer = styled.ul`
@@ -12,10 +13,19 @@ const ListContainer = styled.ul`
 `;
 
 const TodoList = () => {
-  const todos = useRecoilValue(todosAtom);
+  const [todos, setTodos] = useRecoilState(todosAtom);
+  const filteredTodos = useRecoilValue(todosSelector);
+  useEffect(() => {
+    const savedTodos = localStorage.getItem("todoStorage");
+    if (savedTodos !== null) {
+      const parsedTodos = JSON.parse(savedTodos);
+      console.log(parsedTodos);
+      setTodos(parsedTodos);
+    }
+  }, []);
   return (
     <ListContainer>
-      {todos.map((todo) => (
+      {filteredTodos.map((todo) => (
         <TodoItem {...todo} />
       ))}
     </ListContainer>

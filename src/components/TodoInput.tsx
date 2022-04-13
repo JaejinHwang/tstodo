@@ -1,7 +1,14 @@
+import React from "react";
 import { useForm } from "react-hook-form";
-import { useSetRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components";
-import { todosAtom } from "./Atoms";
+import {
+  Categories,
+  categoryAtom,
+  customCategoryAtom,
+  todosAtom,
+} from "./Atoms";
+import { useDidMountEffect } from "./Hooks";
 
 const Form = styled.form`
   display: flex;
@@ -11,10 +18,13 @@ const Form = styled.form`
 
 interface IForm {
   toDo: string;
+  category: string;
 }
 
 const TodoInput = () => {
-  const setTodos = useSetRecoilState(todosAtom);
+  const [category, setCategory] = useRecoilState(categoryAtom);
+  const customCategory = useRecoilValue(customCategoryAtom);
+  const [todos, setTodos] = useRecoilState(todosAtom);
   const {
     register,
     handleSubmit,
@@ -23,11 +33,18 @@ const TodoInput = () => {
   } = useForm<IForm>();
   const onSubmit = ({ toDo }: IForm) => {
     setTodos((remainTodos) => [
-      { text: toDo, date: Date.now(), category: "TO DO" },
+      { text: toDo, date: Date.now(), category: Categories.TODO },
       ...remainTodos,
     ]);
     setValue("toDo", "");
   };
+  const onInput = (event: React.FormEvent<HTMLSelectElement>) => {
+    const { currentTarget } = event;
+    setCategory(currentTarget.value as any);
+  };
+  useDidMountEffect(() => {
+    localStorage.setItem("todoStorage", JSON.stringify(todos));
+  }, [todos]);
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <input
@@ -37,6 +54,17 @@ const TodoInput = () => {
         })}
       />
       {errors?.toDo?.message}
+      <select value={category} onInput={onInput}>
+        <option value={Categories.TODO}>To Do</option>
+        <option value={Categories.DOING}>Doing</option>
+        <option value={Categories.DONE}>Done</option>
+      </select>
+      <input list="datalist" placeholder="Custom Category" />
+      <datalist id="datalist">
+        {customCategory.map((category) => (
+          <option value={category} />
+        ))}
+      </datalist>
       <button>Add</button>
     </Form>
   );
