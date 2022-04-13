@@ -55,5 +55,6 @@
   "devDependencies": {
     "@types/react-helmet": "^6.1.5",
     "@types/styled-components": "^5.1.24"
-  }
+  },
+  "homepage": "https://jaejinhwang.github.io/tstodo.git/"
 }
