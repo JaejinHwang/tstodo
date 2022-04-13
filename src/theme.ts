@@ -10,6 +10,9 @@ export const darkTheme: DefaultTheme = {
   cardColor: "rgba(118, 118, 128, 0.24)",
   buttonColor: "#636366",
   pickerColor: "rgba(118, 118, 128, 0.24)",
+  todoColor: "#FFEDA4",
+  doingColor: "#A8CDE4",
+  doneColor: "#FFB9B4",
 };
 
 export const lightTheme: DefaultTheme = {
@@ -22,4 +25,7 @@ export const lightTheme: DefaultTheme = {
   negativeColor: "#ee5253",
   buttonColor: "#ffffff",
   pickerColor: "rgba(118, 118, 128, 0.1)",
+  todoColor: "#FFEDA4",
+  doingColor: "#A8CDE4",
+  doneColor: "#FFB9B4",
 };

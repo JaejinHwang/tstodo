@@ -6,7 +6,6 @@ import TodoItem from "./TodoItem";
 
 const ListContainer = styled.ul`
   width: 100%;
-  margin: 40px 0px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -26,7 +25,7 @@ const TodoList = () => {
   return (
     <ListContainer>
       {filteredTodos.map((todo) => (
-        <TodoItem {...todo} />
+        <TodoItem key={todo.date} {...todo} />
       ))}
     </ListContainer>
   );

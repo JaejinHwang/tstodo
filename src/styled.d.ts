@@ -11,5 +11,8 @@ declare module "styled-components" {
     buttonColor: string;
     subTextColor: string;
     pickerColor: string;
+    doingColor: string;
+    doneColor: string;
+    todoColor: string;
   }
 }

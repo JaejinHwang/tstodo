@@ -1,6 +1,5 @@
-import { useRecoilValue } from "recoil";
 import styled from "styled-components";
-import { todosSelector } from "./Atoms";
+import TodoFilter from "./TodoFilter";
 import TodoInput from "./TodoInput";
 import TodoList from "./TodoList";
 
@@ -37,6 +36,7 @@ const TodoInterface = () => {
       <Background>
         <Header>Todos</Header>
         <TodoInput />
+        <TodoFilter />
         <TodoList />
       </Background>
     </Viewport>
