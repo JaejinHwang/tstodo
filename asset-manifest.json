@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/tstodo.git/index.html/static/css/main.debdf62c.css",
-    "main.js": "/tstodo.git/index.html/static/js/main.a46c409a.js",
-    "static/js/787.98c8dec2.chunk.js": "/tstodo.git/index.html/static/js/787.98c8dec2.chunk.js",
-    "static/media/remixicon.svg?t=1590207869815": "/tstodo.git/index.html/static/media/remixicon.9cedd2150922ead84869.svg",
-    "static/media/remixicon.eot?t=1590207869815": "/tstodo.git/index.html/static/media/remixicon.5cb99e6cba5a4619063f.eot",
-    "static/media/remixicon.ttf?t=1590207869815": "/tstodo.git/index.html/static/media/remixicon.f2616f597cf98f38d234.ttf",
-    "static/media/remixicon.woff?t=1590207869815": "/tstodo.git/index.html/static/media/remixicon.8d09fa11700ed63cf96e.woff",
-    "static/media/remixicon.woff2?t=1590207869815": "/tstodo.git/index.html/static/media/remixicon.90668f6f9b3c2c18a090.woff2",
-    "index.html": "/tstodo.git/index.html/index.html",
-    "main.debdf62c.css.map": "/tstodo.git/index.html/static/css/main.debdf62c.css.map",
-    "main.a46c409a.js.map": "/tstodo.git/index.html/static/js/main.a46c409a.js.map",
-    "787.98c8dec2.chunk.js.map": "/tstodo.git/index.html/static/js/787.98c8dec2.chunk.js.map"
+    "main.css": "/tstodo.git/static/css/main.5d8244d0.css",
+    "main.js": "/tstodo.git/static/js/main.cc02d730.js",
+    "static/js/787.98c8dec2.chunk.js": "/tstodo.git/static/js/787.98c8dec2.chunk.js",
+    "static/media/remixicon.svg?t=1590207869815": "/tstodo.git/static/media/remixicon.9cedd2150922ead84869.svg",
+    "static/media/remixicon.eot?t=1590207869815": "/tstodo.git/static/media/remixicon.5cb99e6cba5a4619063f.eot",
+    "static/media/remixicon.ttf?t=1590207869815": "/tstodo.git/static/media/remixicon.f2616f597cf98f38d234.ttf",
+    "static/media/remixicon.woff?t=1590207869815": "/tstodo.git/static/media/remixicon.8d09fa11700ed63cf96e.woff",
+    "static/media/remixicon.woff2?t=1590207869815": "/tstodo.git/static/media/remixicon.90668f6f9b3c2c18a090.woff2",
+    "index.html": "/tstodo.git/index.html",
+    "main.5d8244d0.css.map": "/tstodo.git/static/css/main.5d8244d0.css.map",
+    "main.cc02d730.js.map": "/tstodo.git/static/js/main.cc02d730.js.map",
+    "787.98c8dec2.chunk.js.map": "/tstodo.git/static/js/787.98c8dec2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.debdf62c.css",
-    "static/js/main.a46c409a.js"
+    "static/css/main.5d8244d0.css",
+    "static/js/main.cc02d730.js"
   ]
 }
